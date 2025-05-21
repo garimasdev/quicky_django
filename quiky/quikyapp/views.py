@@ -9,3 +9,7 @@ def contact_us(request):
     return render(request, 'contact.html')
 
 
+def blog(request):
+    return render(request, 'blog.html')
+
+
