@@ -105,6 +105,8 @@
                         <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-square btn-light rounded-circle mx-1" href="https://wa.me/yourNumber" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                          
                     </div>
                     <a href="#" class="btn btn-primary rounded-pill py-2 px-4 flex-shrink-0">Get Started</a>
                 </div>
@@ -115,17 +117,17 @@
         <!-- Carousel Start -->
         <div class="header-carousel owl-carousel">
             <div class="header-carousel-item">
-                <img src="{% static 'images/carousel-3.jpg' %}" class="img-fluid w-100" alt="Image">
+                <img src="{% static 'images/carousel-2.jpg' %}" class="img-fluid w-100" alt="Image">
                 <div class="carousel-caption">
                     <div class="container align-items-center py-4">
                         <div class="row g-5 align-items-center">
                             <div class="col-xl-7 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                 <div class="text-start">
-                                    <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome To Quiky</h4>
+                                    <h4 class="text-primary text-uppercase fw-bold mb-4" style="color: #38660d;">Quiky: Big opportunity for motels/airbnb/PG/home-stay</h4>
                                     <h1 class="display-4 text-uppercase text-white mb-4">Join hands with Quiky and start earning from day one</h1>
                                     <p class="mb-4 fs-5">Partner with Us – Boost Your Motel Income with Food Delivery. Quiky provides a plug-and-play QR-based food ordering system + toll-free call center. Guests order food from their room, and you earn a commission on every order. </p>
                                     <div class="d-flex flex-shrink-0">
-                                        <a class="btn btn-primary rounded-pill text-white py-3 px-5" href="#">Our Packages</a>
+                                        <a class="btn btn-primary rounded-pill text-white py-3 px-5" href="#commission">Commission Structure</a>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +172,7 @@
                     </div>
                 </div>
             </div>
-            <div class="header-carousel-item">
+            <!-- <div class="header-carousel-item">
                 <img src="{% static 'images/carousel-1.jpg' %}" class="img-fluid w-100" alt="Image">
                 <div class="carousel-caption">
                     <div class="container align-items-center py-4">
@@ -185,10 +187,12 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-xl-5 fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                 <div class="ticket-form p-5">
                                     <h2 class="text-dark text-uppercase mb-4">contact our team now!</h2>
-                                    <form>
+                                    <form method="POST" action="{% url 'book_now' %}">
+                                        {% csrf_token %}
                                         <div class="row g-4">
                                             <div class="col-12">
                                                 <input type="text" class="form-control border-0 py-2" id="name" placeholder="Your Name">
@@ -209,12 +213,6 @@
                                                     <option value="restaurant">Restaurant</option>
                                                 </select>
                                             </div>
-                                            <!-- <div class="col-12">
-                                                <input class="form-control border-0 py-2" type="date">
-                                            </div> -->
-                                            <!-- <div class="col-12">
-                                                <input type="number" class="form-control border-0 py-2" id="number" placeholder="Guest">
-                                            </div> -->
                                             <div class="col-12">
                                                 <button type="button" class="btn btn-primary w-100 py-2 px-5">Book Now</button>
                                             </div>
@@ -225,7 +223,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- Carousel End -->
 
@@ -452,7 +450,7 @@
 
 
         <!-- Ticket Packages Start -->
-        <div class="container-fluid py-5">
+        <div id="commission" class="container-fluid py-5">
             <div class="container py-5">
                 <div class="row g-5 align-items-start">
                     <!-- Left-side Text Section -->
@@ -461,14 +459,32 @@
                             <div class="col-lg-10 col-xl-8">
                                 <div class="packages-item text-center">
                                     <h4 class="text-primary">Commission Structure</h4>
-                                    <h1 class="display-5 mb-4">Choose The Best Packages For Your Motel</h1>
+                                    <h1 class="display-5 mb-4">Choose Earning Based on Your Accommodation</h1>
                                     <p class="mb-4">
                                         Enjoy QR-based digital menus for every room, real-time analytics, instant order notifications through Telegram, toll-free guest assistance, full delivery management, and easy tracking with quick payouts — designed to suit motels of all sizes.
                                     </p>
-                                    <p><i class="fa fa-check text-primary me-2"></i>1–100 Orders: ₹40 per order (₹4,000/month)</p>
-                                    <p><i class="fa fa-check text-primary me-2"></i>101–300 Orders: ₹50 per order (₹15,000/month)</p>
-                                    <p><i class="fa fa-check text-primary me-2"></i>301+ Orders: ₹60 per order (₹18,000+ per month)</p>
-                                    <a href="#" class="btn btn-primary rounded-pill py-3 px-5 mt-3">Book Now</a>
+                                    <div class="text-center mb-5">
+                                        <p class="fs-5">
+                                            <i class="fa fa-bolt text-warning me-2"></i>
+                                            <strong class="text-dark">1–100 Orders</strong>: 
+                                            <span class="text-success fw-bold">₹40/order</span> 
+                                            <span class="text-muted">(₹4,000/month)</span>
+                                        </p>
+                                        <p class="fs-5">
+                                            <i class="fa fa-fire text-danger me-2"></i>
+                                            <strong class="text-dark">101–300 Orders</strong>: 
+                                            <span class="text-success fw-bold">₹50/order</span> 
+                                            <span class="text-muted">(₹15,000/month)</span>
+                                        </p>
+                                        <p class="fs-5">
+                                            <i class="fa fa-star text-warning me-2"></i>
+                                            <strong class="text-dark">301+ Orders</strong>: 
+                                            <span class="text-success fw-bold">₹60/order</span> 
+                                            <span class="text-muted">(₹18,000+ per month)</span>
+                                        </p>
+                                    </div>
+                                    
+                                    <a href="{% url 'contact' %}" class="btn btn-primary rounded-pill py-3 px-5 mt-3">Book Now</a>
                                 </div>
                             </div>
                         </div>
@@ -480,7 +496,7 @@
                         <div class="pricing-item bg-dark rounded text-center p-5 h-100">
                             <div class="pb-4 border-bottom">
                                 <h2 class="mb-4 text-primary">Small Motel</h2>
-                                <p class="mb-4 text-white">Ideal for properties with up to 5 rooms</p>
+                                <p class="mb-4 text-white">Ideal for properties with up to 5 rooms, making it perfect for small motels/guesthouses/AirBnB that provide guests smooth food ordering experience without any in-house kitchen.</p>                                
                                 <h2 class="mb-0 text-primary">₹7,500<span class="text-body fs-5 fw-normal">/month</span></h2>
                                 <p class="text-white mt-2">₹90,000/year</p>
                             </div>
@@ -492,7 +508,7 @@
                                 <p class="mb-4"><i class="fa fa-check text-primary me-2"></i>End-to-End Delivery Management</p>
                                 <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Easy Tracking & Payouts</p>
                             </div>
-                            <a href="#" class="btn btn-light rounded-pill py-3 px-5 mt-4">Get Started</a>
+                            <a href="{% url 'contact' %}" class="btn btn-light rounded-pill py-3 px-5 mt-4">Get Started</a>
                         </div>
                     </div>
         
@@ -501,7 +517,7 @@
                         <div class="pricing-item bg-primary rounded text-center p-5 h-100">
                             <div class="pb-4 border-bottom">
                                 <h2 class="text-dark mb-4">Mid Motel</h2>
-                                <p class="text-white mb-4">Best for properties with up to 15 rooms</p>
+                                <p class="text-white mb-4">Best suited for properties with up to 15 rooms, designed for growing motels/homestay seeking contactless, commission-based food delivery — no kitchen required.</p>
                                 <h2 class="text-dark mb-0">₹27,000<span class="text-white fs-5 fw-normal">/month</span></h2>
                                 <p class="text-white mt-2">₹3,24,000/year</p>
                             </div>
@@ -513,7 +529,7 @@
                                 <p class="mb-4"><i class="fa fa-check text-dark me-2"></i>Integrated Delivery Management</p>
                                 <p class="mb-0"><i class="fa fa-check text-dark me-2"></i>Easy Payout Dashboard</p>
                             </div>
-                            <a href="#" class="btn btn-dark rounded-pill py-3 px-5 mt-4">Get Started</a>
+                            <a href="{% url 'contact' %}" class="btn btn-dark rounded-pill py-3 px-5 mt-4">Get Started</a>
                         </div>
                     </div>
         
@@ -522,7 +538,7 @@
                         <div class="pricing-item bg-dark rounded text-center p-5 h-100">
                             <div class="pb-4 border-bottom">
                                 <h2 class="mb-4 text-primary">Large Motel</h2>
-                                <p class="mb-4 text-white">For motels with up to 30 rooms or more</p>
+                                <p class="mb-4 text-white">Perfect for motels with up to 30+ rooms, offer for large-scale properties seeking a streamlined food delivery system with real-time insights, centralized guest support — all without managing a kitchen.</p>                                
                                 <h2 class="mb-0 text-primary">₹54,000<span class="text-body fs-5 fw-normal">/month</span></h2>
                                 <p class="text-white mt-2">₹6,48,000/year</p>
                             </div>
@@ -534,7 +550,7 @@
                                 <p class="mb-4"><i class="fa fa-check text-primary me-2"></i>Automated Delivery Coordination</p>
                                 <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Real-Time Order & Payout Tracking</p>
                             </div>
-                            <a href="#" class="btn btn-light rounded-pill py-3 px-5 mt-4">Get Started</a>
+                            <a href="{% url 'contact' %}" class="btn btn-light rounded-pill py-3 px-5 mt-4">Get Started</a>
                         </div>
                     </div>
         
@@ -587,7 +603,7 @@
             <div class="container pb-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Our Gallery</h4>
-                    <h1 class="display-5 mb-4">Captured Moments In Waterland</h1>
+                    <h1 class="display-5 mb-4">Captured Moments In Quiky</h1>
                     <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.</p>
                 </div>
                 <div class="row g-4">
@@ -680,7 +696,7 @@
                                 <div class="blog-date"><i class="fas fa-clock me-2"></i>August 19, 2025</div>
                             </div>
                             <div class="blog-content p-4">
-                                <a href="#" class="h4 d-inline-block mb-4">5 Ways To Enjoy Waterland This Spring Break</a>
+                                <a href="#" class="h4 d-inline-block mb-4">5 Ways To Enjoy Quiky This Spring Break</a>
                                 <p class="mb-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam aspernatur nam quidem porro sapiente, neque a quibusdam....</p>
                                 <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More <i class="fas fa-arrow-right ms-2"></i></a>
                             </div>
@@ -713,7 +729,7 @@
             <div class="container pb-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Meet Our Team</h4>
-                    <h1 class="display-5 mb-4">Our Waterland Park Dedicated Team Member</h1>
+                    <h1 class="display-5 mb-4">Our Quiky Park Dedicated Team Member</h1>
                     <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.</p>
                 </div>
                 <div class="row g-4 justify-content-center">
@@ -885,18 +901,18 @@
                                     <h1 class="display-6 text-dark" style="margin-left: 14pc;
                                     margin-bottom: 22px;">Quiky</h1>
                                 </a>
-                            <p class="mb-2">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing...</p>
+                            <p class="mb-2">Delivering.Delicious.Discoveries</p>
                             <div class="d-flex align-items-center">
                                 <i class="fas fa-map-marker-alt text-primary me-3"></i>
-                                <p class="text-white mb-0">123 Street New York.USA</p>
+                                <p class="text-white mb-0">Office No-5, Fifth Floor, Tdi Business Centre, Sec-118, Sahibzada Ajit Singh Nagar, Punjab 140301, India</p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <i class="fas fa-envelope text-primary me-3"></i>
-                                <p class="text-white mb-0">info@example.com</p>
+                                <p class="text-white mb-0">support@quikymeals.com</p>
                             </div>
                             <div class="d-flex align-items-center">
                                 <i class="fa fa-phone-alt text-primary me-3"></i>
-                                <p class="text-white mb-0">(+012) 3456 7890</p>
+                                <p class="text-white mb-0">01724123268</p>
                             </div>
                         </div>
                     </div>
@@ -931,11 +947,7 @@
                                     <p class="mb-0"><i class="fas fa-clock text-primary me-2"></i> 11:00 AM - 16:00 PM</p>
                                 </div>
                                 <div class="opening-clock flex-shrink-0">
-                                    <h6 class="text-white mb-0 me-auto">Satur - Sunday:</h6>
-                                    <p class="mb-0"><i class="fas fa-clock text-primary me-2"></i> 09:00 AM - 17:00 PM</p>
-                                </div>
-                                <div class="opening-clock flex-shrink-0">
-                                    <h6 class="text-white mb-0 me-auto">Holiday:</h6>
+                                    <h6 class="text-white mb-0 me-auto">Saturday - Sunday:</h6>
                                     <p class="mb-0"><i class="fas fa-clock text-primary me-2"></i> 09:00 AM - 17:00 PM</p>
                                 </div>
                             </div>
