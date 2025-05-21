@@ -35,6 +35,15 @@
         <!-- Template Stylesheet -->
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
+        <style>
+            .q-color { color: green; }
+            .u-color { color: darkgreen; }
+            .i-color { color: orange; }
+            .k-color { color: red; }
+            .y-color { color: darkorange; }
+
+        </style>
+
     </head>
 
     <body>
@@ -59,8 +68,10 @@
                     background-repeat: no-repeat;
                     padding-top: 40px;
                     margin-left: -8pc;">
-                    <h1 class="display-6 text-dark" style="margin-left: 14pc;
-                    margin-bottom: 22px;">Quiky</h1>
+                   <h1 class="display-6 text-dark" style="margin-left: 13pc; margin-bottom: 22px;">
+                        <span class="q-color">Q</span><span class="u-color">u</span><span class="i-color">i</span><span class="k-color">k</span><span class="y-color">y</span>
+                    </h1>                
+                    
                 </a>
                 <!-- <a href="" class="navbar-brand p-0">
                     <h1 class="display-6 text-dark"><img src="{% static 'images/logo1.png' %}" alt="Logo"></i>Quiky</h1>
@@ -160,9 +171,9 @@
                 </div>
             </div>
             <div class="header-carousel-item">
-                <img src="{% static 'images/carousel-1.jpg' %}" class="img-fluid w-100" alt="Image">
+                <img src="{% static 'images/carousel-2.jpg' %}" class="img-fluid w-100" alt="Image">
                 <div class="carousel-caption">
-                    <div class="container py-4">
+                    <div class="container align-items-center py-4">
                         <div class="row g-5 align-items-center">
                             <div class="col-xl-7 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                 <div class="text-start">
