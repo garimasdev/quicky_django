@@ -127,15 +127,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 
-# contact us
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-
-# # Your Gmail account
-# EMAIL_HOST_USER = 'support@quikymeals.com'
-# EMAIL_HOST_PASSWORD = 'mhxn bkng hvpf hftp'  # Not your Gmail password
-
-# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

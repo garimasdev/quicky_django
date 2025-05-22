@@ -24,32 +24,32 @@ def blog(request):
 
 
 
-def contact_submit(request):
-    if request.method == "POST":
-        name = request.POST.get("name")
-        email = request.POST.get("email")
-        phone = request.POST.get("phone")
-        category = request.POST.get("category")
-        message = request.POST.get('message')
+# def contact_submit(request):
+#     if request.method == "POST":
+#         name = request.POST.get("name")
+#         email = request.POST.get("email")
+#         phone = request.POST.get("phone")
+#         category = request.POST.get("category")
+#         message = request.POST.get('message')
 
-        message = f"""
-        New Booking Inquiry:
-        Name: {name}
-        Email: {email}
-        Phone: {phone}
-        Category: {category}
-        Message: {message}
-        """
+#         message = f"""
+#         New Booking Inquiry:
+#         Name: {name}
+#         Email: {email}
+#         Phone: {phone}
+#         Category: {category}
+#         Message: {message}
+#         """
 
-        send_mail(
-            subject=f"New Booking Inquiry from quiky {name}",
-            message=message,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=["support@quikymeals.com"],  # replace with your email
-        )
+#         send_mail(
+#             subject=f"New Booking Inquiry from quiky {name}",
+#             message=message,
+#             from_email=settings.DEFAULT_FROM_EMAIL,
+#             recipient_list=["support@quikymeals.com"],  # replace with your email
+#         )
 
-        return redirect('Your message has been sent. Will contact you shortly!')
-    return redirect('contact')
+#         return redirect('Your message has been sent. Will contact you shortly!')
+#     return redirect('contact')
 
 
 
