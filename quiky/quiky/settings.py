@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ck$okw*9=%+b5ab*sju*hc_et!_gkku)ib%1n%=)o5lb#m1qt9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["quikymeals.com"]
+ALLOWED_HOSTS = ["quikymeals.com", "localhost"]
 
 
 # Application definition
@@ -125,3 +125,17 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+
+# contact us
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+# Your Gmail account
+EMAIL_HOST_USER = 'support@quikymeals.com'
+EMAIL_HOST_PASSWORD = 'mhxn bkng hvpf hftp'  # Not your Gmail password
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
