@@ -58,8 +58,8 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto py-0">
                         <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
+                        <a href="{% url 'home' %}" class="nav-item nav-link">About</a>
+                        <a href="{% url 'home' %}" class="nav-item nav-link">Service</a>
                         <a href="{% url 'blog' %}" class="nav-item nav-link">Blog</a>
                         
                         <!-- <div class="nav-item dropdown">
@@ -109,7 +109,7 @@
                         <div>
                             <div class="pb-5">
                                 <h4 class="text-primary">Get in Touch</h4>
-                                <p class="mb-0">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a class="text-primary fw-bold" href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                                <p class="mb-0">Have questions or ready to get started? Our team is here to help. Fill out the form and we’ll get back to you shortly. You can also reach us directly through our toll-free number or WhatsApp for quicker assistance.</p>
                             </div>
                             <div class="row g-4">
                                 <div class="col-lg-6">
@@ -119,7 +119,7 @@
                                         </div>
                                         <div>
                                             <h4>Telephone</h4>
-                                            <p class="mb-0">+91 98550 21117</p>
+                                            <p class="mb-0">01724123268</p>
                                         </div>
                                     </div>
                                 </div>
@@ -160,9 +160,9 @@
                                 <div class="col-12">
                                     <div class="d-flex justify-content-around bg-light rounded p-4">
                                         <a class="btn btn-xl-square btn-primary rounded-circle" href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-xl-square btn-primary rounded-circle" href="#"><i class="fab fa-whatsapp"></i></a>
+                                        <a class="btn btn-xl-square btn-primary rounded-circle" href="https://wa.me/+919855021117" target="_blank"><i class="fab fa-whatsapp"></i></a>
                                         <a class="btn btn-xl-square btn-primary rounded-circle" href="#"><i class="fab fa-twitter"></i></a>
-                                        <a class="btn btn-xl-square btn-primary rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
+                                        <a class="btn btn-xl-square btn-primary rounded-circle" href="http://instagram.com/quikymeals/" target="_blank"><i class="fab fa-instagram"></i></a>
                                         <a class="btn btn-xl-square btn-primary rounded-circle" href="#"><i class="fab fa-linkedin-in"></i></a>
                                     </div>
                                 </div>
@@ -172,58 +172,54 @@
                     <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.4s">
                         <div class="bg-light p-5 rounded h-100">
                             <h4 class="text-primary mb-4">Send Your Message</h4>
-                            <form>
+                            <form method="POST" action="{% url 'book_now' %}">
+                                {% csrf_token %}
                                 <div class="row g-4">
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="name" placeholder="Your Name">
+                                            <input type="text" class="form-control border-0" id="name" name="name" placeholder="Your Name" required>
                                             <label for="name">Your Name</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
-                                            <input type="email" class="form-control border-0" id="email" placeholder="Your Email">
+                                            <input type="email" class="form-control border-0" id="email" name="email" placeholder="Your Email" required>
                                             <label for="email">Your Email</label>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
-                                            <input type="phone" class="form-control border-0" id="phone" placeholder="Phone">
+                                            <input type="tel" class="form-control border-0" id="phone" name="phone" placeholder="Phone" required>
                                             <label for="phone">Your Phone</label>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-xl-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="project" placeholder="Project">
-                                            <label for="project">Your Project</label>
-                                        </div>
-                                    </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <select class="form-select border-0 py-2" aria-label="Default select example">
-                                                <option selected>Select Category</option>
-                                                <option value="airbnb">Airbnbs</option>
+                                            <select class="form-select border-0 py-2" name="category" required>
+                                                <option value="">Select Category</option>
+                                                <option value="airbnb">Airbnb</option>
                                                 <option value="motel">Motel</option>
-                                                <option value="motel">Home Stay</option>
+                                                <option value="homestay">Home Stay</option>
                                                 <option value="pg">Paying Guest</option>
                                                 <option value="restaurant">Restaurant</option>
                                             </select>
+                                            <label for="category">Category</label>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea class="form-control border-0" placeholder="Leave a message here" id="message" style="height: 160px"></textarea>
+                                            <textarea class="form-control border-0" placeholder="Leave a message here" id="message" name="message" style="height: 160px" required></textarea>
                                             <label for="message">Message</label>
                                         </div>
-
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3">Send Message</button>
+                                        <button type="submit" class="btn btn-primary w-100 py-3">Send Message</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
+                    
                     <div class="col-12 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="rounded">
                             <iframe class="rounded w-100" style="height: 400px;" style="border:0;" allowfullscreen="" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6858.66823553244!2d76.680704!3d30.737115!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fef200cac8599%3A0x470654270ca2bc93!2sIberry%20Wifi%20Corporation!5e0!3m2!1sen!2sus!4v1747312462081!5m2!1sen!2sus" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -241,7 +237,7 @@
                     <div class="col-md-6 col-lg-6 col-xl-4">
                         <div class="footer-item">
                             <a href="index.html" class="p-0">
-                                <h4 class="text-white mb-4"><i class="fas fa-swimmer text-primary me-3"></i>Quiky</h4>
+                                <h4 class="text-white mb-4"><i class="fas fa-utensils text-primary me-3"></i>Quiky</h4>
                             </a>
                             <p class="mb-2">Delivering.Delicious.Discoveries</p>
                             <div class="d-flex align-items-center">
@@ -261,12 +257,12 @@
                     <div class="col-md-6 col-lg-6 col-xl-2">
                         <div class="footer-item">
                             <h4 class="text-white mb-4">Quick Links</h4>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Feature</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Attractions</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Tickets</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Blog</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Contact us</a>
+                            <a href="{% url 'home' %}"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                            <a href="{% url 'home' %}"><i class="fas fa-angle-right me-2"></i> Service</a>
+                            <!-- <a href="#"><i class="fas fa-angle-right me-2"></i> Attractions</a> -->
+                            <!-- <a href="#"><i class="fas fa-angle-right me-2"></i> Tickets</a> -->
+                            <a href="{% url 'blog' %}"><i class="fas fa-angle-right me-2"></i> Blog</a>
+                            <a href="{% url 'contact' %}"><i class="fas fa-angle-right me-2"></i> Contact us</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-2">
