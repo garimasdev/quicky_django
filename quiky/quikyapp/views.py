@@ -42,7 +42,7 @@ def contact_submit(request):
         """
 
         send_mail(
-            subject=f"New Booking Inquiry from {name}",
+            subject=f"New Booking Inquiry from quiky {name}",
             message=message,
             from_email=settings.DEFAULT_FROM_EMAIL,
             recipient_list=["support@quikymeals.com"],  # replace with your email
