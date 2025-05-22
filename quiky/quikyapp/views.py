@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.conf import settings
+from django.contrib import messages
 
 import ssl
 import certifi
@@ -48,7 +49,9 @@ def contact_submit(request):
             recipient_list=["support@quikymeals.com"],  # replace with your email
         )
 
-        return redirect('Your message has been sent. Will contact you shortly!')
+        messages.success(request, "Your message has been sent. We will contact you shortly!")
+
+        return redirect('contact')
     return redirect('contact')
 
 
