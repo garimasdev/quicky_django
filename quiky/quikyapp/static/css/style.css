@@ -15,6 +15,15 @@
 }
 /*** Spinner End ***/
 
+
+/* quiky */
+.q-color { color: green; }
+.u-color { color: darkgreen; }
+.i-color { color: orange; }
+.k-color { color: red; }
+.y-color { color: darkorange; }
+
+
 .back-to-top {
     position: fixed;
     right: 30px;

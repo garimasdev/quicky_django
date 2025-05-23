@@ -35,15 +35,6 @@
         <!-- Template Stylesheet -->
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-        <style>
-            .q-color { color: green; }
-            .u-color { color: darkgreen; }
-            .i-color { color: orange; }
-            .k-color { color: red; }
-            .y-color { color: darkorange; }
-
-        </style>
-
     </head>
 
     <body>
@@ -59,7 +50,13 @@
         <!-- Navbar & Hero Start -->
         <div class="container-fluid nav-bar sticky-top px-4 py-2 py-lg-0">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a href="" class="navbar-brand p-0" style="background: url(/static/images/logo1.png) no-repeat scroll center;
+                <a href="index.html" class="p-0 d-flex align-items-center">
+                    <img src="/static/images/logo.png" alt="Quiky Logo" style="height: 85px;">
+                    <h1 class="display-6 text-dark" style="margin-left: -12px;">
+                        <span class="q-color">Q</span><span class="u-color">u</span><span class="i-color">i</span><span class="k-color">k</span><span class="y-color">y</span>
+                    </h1> 
+                </a>
+                <!-- <a href="" class="navbar-brand p-0" style="background: url(/static/images/logo.png) no-repeat scroll center;
                     background-size: 205px 105px;
                     padding-left: 50px;
                     line-height: -23pc;
@@ -71,8 +68,7 @@
                    <h1 class="display-6 text-dark" style="margin-left: 13pc; margin-bottom: 22px;">
                         <span class="q-color">Q</span><span class="u-color">u</span><span class="i-color">i</span><span class="k-color">k</span><span class="y-color">y</span>
                     </h1>                
-                    
-                </a>
+                </a> -->
                 <!-- <a href="" class="navbar-brand p-0">
                     <h1 class="display-6 text-dark"><img src="{% static 'images/logo1.png' %}" alt="Logo"></i>Quiky</h1>
                 </a> -->
@@ -131,7 +127,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-5 fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
+                            <!-- <div class="col-xl-5 fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                 <div class="ticket-form p-5">
                                     <h2 class="text-dark text-uppercase mb-4">contact our team now!</h2>
                                     <form>
@@ -155,19 +151,13 @@
                                                     <option value="restaurant">Restaurant</option>
                                                 </select>
                                             </div>
-                                            <!-- <div class="col-12">
-                                                <input class="form-control border-0 py-2" type="date">
-                                            </div> -->
-                                            <!-- <div class="col-12">
-                                                <input type="number" class="form-control border-0 py-2" id="number" placeholder="Guest">
-                                            </div> -->
                                             <div class="col-12">
                                                 <button type="button" class="btn btn-primary w-100 py-2 px-5">Book Now</button>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-                            </div> 
+                            </div>  -->
                         </div>
                     </div>
                 </div>
@@ -888,8 +878,10 @@
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-6 col-xl-4">
                         <div class="footer-item">
-                            <a href="index.html" class="p-0">
-                                <h4 class="text-white mb-4"><i class="fas fa-utensils text-primary me-3"></i>Quiky</h4>
+                            <a href="index.html" class="p-0 d-flex align-items-center">
+                                <img src="{% static 'images/logo2.png' %}" alt="Quiky Logo" style="height: 5pc; margin: -32px 10px 5px 8px;">
+                                <h4 class="text-white mb-0" style="margin: -38px 0px 0px 0px;">Quiky
+                                </h4>
                             </a>
                             <p class="mb-2">Delivering.Delicious.Discoveries</p>
                             <div class="d-flex align-items-center">
@@ -909,13 +901,12 @@
                     <div class="col-md-6 col-lg-6 col-xl-2">
                         <div class="footer-item">
                             <h4 class="text-white mb-4">Quick Links</h4>
-                                                      <a href="{% url 'home' %}"><i class="fas fa-angle-right me-2"></i> About Us</a>
-
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Feature</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Attractions</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Tickets</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Blog</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> Contact us</a>
+                            <a href="{% url 'home' %}"><i class="fas fa-angle-right me-2"></i> About Us</a>
+                            <a href="{% url 'home' %}"><i class="fas fa-angle-right me-2"></i> Service</a>
+                            <!-- <a href="#"><i class="fas fa-angle-right me-2"></i> Attractions</a> -->
+                            <!-- <a href="#"><i class="fas fa-angle-right me-2"></i> Tickets</a> -->
+                            <a href="{% url 'blog' %}"><i class="fas fa-angle-right me-2"></i> Blog</a>
+                            <a href="{% url 'contact' %}"><i class="fas fa-angle-right me-2"></i> Contact us</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-2">
