@@ -201,17 +201,17 @@
 }
 
 
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
     .header-carousel .header-carousel-item,
     .header-carousel .header-carousel-item img {
         height: 700px;
     }
-}
+} */
 
 @media (max-width: 1199px) {
     .header-carousel .header-carousel-item,
     .header-carousel .header-carousel-item img {
-        height: 50px !important;
+        height: 650px !important;
     }
 }
 
