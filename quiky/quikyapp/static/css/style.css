@@ -201,7 +201,19 @@
 }
 
 
+@media (min-width: 1200px) {
+    .header-carousel .header-carousel-item,
+    .header-carousel .header-carousel-item img {
+        height: 700px;
+    }
+}
 
+@media (max-width: 1199px) {
+    .header-carousel .header-carousel-item,
+    .header-carousel .header-carousel-item img {
+        height: 650px !important;
+    }
+}
 
 .header-carousel .owl-nav .owl-prev {
     display: none;
