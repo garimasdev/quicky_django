@@ -211,8 +211,7 @@
 @media (max-width: 1199px) {
     .header-carousel .header-carousel-item,
     .header-carousel .header-carousel-item img {
-        /* height: 1200px; */
-        height: 680px;
+        height: 650px;
     }
 }
 
